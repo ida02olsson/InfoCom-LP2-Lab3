@@ -23,24 +23,28 @@ def run(current_coords, from_coords, to_coords, SERVER_URL):
         with requests.Session() as session:
             drone_location = {'longitude': drone_coords[0],
                               'latitude': drone_coords[1]
-                        }
+                        
           while current_coords != from_coords
-            if drone_coords[0] > from_coords[0] then drone_coords[0] - 0.0001
-                elif drone_coords[0] < from_coords[0] then drone_coords[0] + 0.0001
-                else: drone_coords[0] + 0
+            if drone_coords[0] > from_coords[0] then drone_coords[0] -= 0.0001
+                elif drone_coords[0] < from_coords[0] then drone_coords[0] += 0.0001
+                else: drone_coords[0] += 0
               
-            if drone_coords[1] > from_coords[1] then drone_coords[1] - 0.0001
-                elif drone_coords[1] < from_coords[1] then drone_coords[1] + 0.0001
-                else: drone_coords[1] + 0
+            if drone_coords[1] > from_coords[1] then drone_coords[1] -= 0.0001
+                elif drone_coords[1] < from_coords[1] then drone_coords[1] += 0.0001
+                else: drone_coords[1] += 0
                 
           while current_coords != to_coords
-            if drone_coords[0] > to_coords[0] then drone_coords[0] - 0.0001
-                elif drone_coords[0] < to_coords[0] then drone_coords[0] + 0.0001
-                else: drone_coords[0] + 0
+            if drone_coords[0] > to_coords[0] then drone_coords[0] -= 0.0001
+                elif drone_coords[0] < to_coords[0] then drone_coords[0] += 0.0001
+                else: drone_coords[0] += 0
               
-            if drone_coords[1] > to_coords[1] then drone_coords[1] - 0.0001
-                elif drone_coords[1] < to_coords[1] then drone_coords[1] + 0.0001
-                else: drone_coords[1] + 0
+            if drone_coords[1] > to_coords[1] then drone_coords[1] -= 0.0001
+                elif drone_coords[1] < to_coords[1] then drone_coords[1] += 0.0001
+                else: drone_coords[1] += 0
+                              
+          return drone_location
+                            
+                             }
             
             resp = session.post(SERVER_URL, json=drone_location)
   #====================================================================================================
